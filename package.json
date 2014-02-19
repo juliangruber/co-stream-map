@@ -1,0 +1,14 @@
+{
+  "name": "co-stream-map",
+  "description": "Map streams over streams",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "juliangruber/co-stream-map",
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "gap": "0.0.0"
+  }
+}
