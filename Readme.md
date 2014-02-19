@@ -4,10 +4,12 @@
   Map a [co stream](https://github.com/juliangruber/co-stream) over each chunk
   of another co stream.
 
+  [![build status](https://secure.travis-ci.org/juliangruber/co-stream-map.png)](http://travis-ci.org/juliangruber/co-stream-map)
+
 ## Example
 
   Given a stream `twice` that emits strings and a stream
-  `chars` the emits a string's chars, map `chars` over `twice`.
+  `chars` the emits a string's chars, map `chars` over `twice`:
 
 ```js
 var map = require('co-stream-map');
