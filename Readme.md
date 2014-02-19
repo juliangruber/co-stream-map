@@ -54,6 +54,8 @@ assert(!(yield read()));
   For every chunk `stream` emits, call `fn` with that chunk and read from the
   returned stream.
 
+  `fn` can be a `Function` or a `GeneratorFunction`.
+
   Returns a readable stream.
 
 ## Installation

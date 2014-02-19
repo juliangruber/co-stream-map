@@ -28,10 +28,24 @@ module.exports = function map(read, fn){
 
     var data;
     while (!data) {
-      sub = yield fn(arg);
+      sub = isGeneratorFunction(fn)
+        ? yield fn(arg)
+        : fn(arg);
       data = yield sub();
       if (data) return data;
     }
   };
 };
+
+/**
+ * Check if `obj` is a generator function.
+ *
+ * @param {Mixed} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isGeneratorFunction(obj) {
+  return obj && obj.constructor && 'GeneratorFunction' == obj.constructor.name;
+}
 

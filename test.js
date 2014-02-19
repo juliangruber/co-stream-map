@@ -54,3 +54,30 @@ test('abort', function*(t){
   t.ok(subEnded);
 });
 
+test('fn normal function', function*(t){
+  var source = (function twice(str){
+    var i = 0;
+    return function*(end){
+      if (end) return;
+      if (++i <3) return str;
+    }
+  })('bar');
+
+  var read = map(source, function chars(str){
+    return function*(end){
+      if (end) return;
+      var first = str[0];
+      str = str.slice(1);
+      return first;
+    }
+  });
+
+  t.equal('b', yield read());
+  t.equal('a', yield read());
+  t.equal('r', yield read());
+  t.equal('b', yield read());
+  t.equal('a', yield read());
+  t.equal('r', yield read());
+  t.notOk(yield read());
+});
+
