@@ -9,6 +9,6 @@
   },
   "devDependencies": {
     "faucet": "0.0.1",
-    "gap": "0.0.1"
+    "gap": "0.3.0"
   }
 }
